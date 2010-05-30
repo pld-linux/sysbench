@@ -1,12 +1,15 @@
 Summary:	a system performance benchmark
 Name:		sysbench
-Version:	0.4.8
+Version:	0.4.12
 Release:	1
 License:	GPL
 Group:		Applications/System
-Source0:	http://dl.sourceforge.net/sysbench/%{name}-%{version}.tar.gz
-# Source0-md5:	da17b9654ec7cb8ebc0b8a8062a41dce
+Source0:	http://downloads.sourceforge.net/sysbench/%{name}-%{version}.tar.gz
+# Source0-md5:	3a6d54fdd3fe002328e4458206392b9d
 URL:		http://sysbench.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	mysql-devel
 BuildRequires:	postgresql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -34,6 +37,11 @@ benchmarks and third-party plug-in modules.
 %setup -q
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--with-mysql \
 	--with-pgsql
@@ -51,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO doc/manual.html
-%attr(755,root,root) %{_bindir}/s*
+%attr(755,root,root) %{_bindir}/%{name}
