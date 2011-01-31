@@ -1,7 +1,7 @@
 Summary:	a system performance benchmark
 Name:		sysbench
 Version:	0.4.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/sysbench/%{name}-%{version}.tar.gz
