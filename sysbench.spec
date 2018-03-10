@@ -1,11 +1,12 @@
 Summary:	a system performance benchmark
 Name:		sysbench
 Version:	0.4.12
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/sysbench/%{name}-%{version}.tar.gz
 # Source0-md5:	3a6d54fdd3fe002328e4458206392b9d
+Patch0:		no-mysqlclient_r.patch
 URL:		http://sysbench.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -35,6 +36,7 @@ benchmarks and third-party plug-in modules.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
