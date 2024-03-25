@@ -1,0 +1,15 @@
+diff -urN sysbench-1.0.20.org/tests/test_run.sh sysbench-1.0.20/tests/test_run.sh
+--- sysbench-1.0.20.org/tests/test_run.sh	2020-04-24 17:51:47.000000000 +0200
++++ sysbench-1.0.20/tests/test_run.sh	2024-03-25 10:01:10.059965966 +0100
+@@ -83,7 +83,10 @@
+ 
+ . $SBTEST_CONFIG
+ 
+-if $(command -v python >/dev/null 2>&1)
++if $(command -v python3 >/dev/null 2>&1)
++then
++    PYTHON=python3
++elif $(command -v python >/dev/null 2>&1)
+ then
+     PYTHON=python
+ elif $(command -v python2 >/dev/null 2>&1)
