@@ -18,6 +18,7 @@ BuildRequires:	libxslt-progs
 BuildRequires:	luajit-devel
 BuildRequires:	mysql-devel
 BuildRequires:	postgresql-devel
+ExcludeArch:	x32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
